@@ -30,6 +30,7 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_greater_greek
 	clr_state_flag = state_renamed_byzantine
 	clr_state_flag = state_renamed_turkish
+	clr_state_flag = state_renamed_ukrainian
 }
 
 do_state_renaming = {
@@ -851,6 +852,31 @@ do_state_renaming = {
 			}
 			797 = {
 				set_state_name = STATE_797_tur_ottoman
+			}
+		}
+	}
+	else_if = {
+		limit = { #Ukrains'ka
+			controller = {
+				is_ukrainian_tag = yes
+			}
+			is_potential_rename_by_ukrainian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_ukrainian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_ukrainian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [ukrainian_rename_loc]
+				}
+				ukrainian_rename_loc = "STATE_[THIS.GetId]_ukr"
 			}
 		}
 	}
