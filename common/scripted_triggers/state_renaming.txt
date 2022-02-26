@@ -252,6 +252,10 @@ is_ukrainian_tag = {
     tag = UKR
 }
 
+is_belarusian_tag = {
+    tag = BLR
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -1165,6 +1169,7 @@ is_potential_rename_by_polish = {
                 }
             }
         }
+        state = 96 #Wilejka
         state = 188 #Klajpeda
         state = 189 #Zmudz
         state = 190 #Kurow
@@ -1640,5 +1645,20 @@ is_potential_rename_by_ukrainian = {
         state = 766 #Pivdenna Bessarabiya
         state = 829 #Pokrovs'k
         state = 834 #Balta-Tiraspil'
+    }
+}
+
+is_potential_rename_by_belarusian = {
+    OR = {
+        state = 94 #Palessie
+        state = 95 #Navahrudak
+        state = 96 #Vilieyka
+        state = 97 #Belastok
+        state = 194 #Mazyr
+        state = 204 #Babruysk
+        state = 206 #Minsk
+        state = 207 #Vicebsk
+        state = 241 #Homel'
+        state = 784 #Vil'nya
     }
 }
