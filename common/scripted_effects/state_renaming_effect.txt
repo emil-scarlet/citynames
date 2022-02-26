@@ -31,6 +31,7 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_byzantine
 	clr_state_flag = state_renamed_turkish
 	clr_state_flag = state_renamed_ukrainian
+	clr_state_flag = state_renamed_belarusian
 }
 
 do_state_renaming = {
@@ -877,6 +878,31 @@ do_state_renaming = {
 					set_state_name = [ukrainian_rename_loc]
 				}
 				ukrainian_rename_loc = "STATE_[THIS.GetId]_ukr"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Belaruskaya
+			controller = {
+				is_belarusian_tag = yes
+			}
+			is_potential_rename_by_belarusian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_belarusian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_belarusian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [belarusian_rename_loc]
+				}
+				belarusian_rename_loc = "STATE_[THIS.GetId]_blr"
 			}
 		}
 	}
