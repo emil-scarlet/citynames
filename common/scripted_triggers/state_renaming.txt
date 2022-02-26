@@ -248,6 +248,10 @@ is_turkish_tag = {
     }
 }
 
+is_ukrainian_tag = {
+    tag = UKR
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -1597,5 +1601,44 @@ is_potential_rename_by_turkish = {
         state = 805 #Kuzey Epir
         state = 826 #Abhazya
         state = 834 #Balta-Tiraspol
+    }
+}
+
+is_potential_rename_by_ukrainian = {
+    OR = {
+        state = 73 #Zakarpattya
+        state = 78 #Bessarabiya
+        state = 80 #Bukovyna
+        state = 89 #Stanyslaviv
+        state = 91 #L'viv
+        state = 93 #Volyn'
+        state = 94 #Polissya
+        state = 137 #Krym
+        state = 193 #Chernihiv
+        state = 194 #Mozyr
+        state = 200 #Zaporizhzhya
+        state = 202 #Kyiv
+        state = 217 #Volgohrad
+        state = 218 #Rostiv
+        state = 220 #Kurs'k
+        state = 221 #Kharkiv
+        state = 222 #Oryel
+        state = 224 #Bryans'k
+        state = 233 #Sochi
+        state = 234 #Katerynodar
+        state = 235 #Stavropol'
+        state = 236 #Astrakhan'
+        state = 237 #Kalmykiya
+        state = 238 #Volgodons'k
+        state = 239 #Sarativ
+        state = 240 #Belhorod
+        state = 245 #Millerovo
+        state = 257 #Tambov
+        state = 258 #Lipets'k
+        state = 260 #Voronezh
+        state = 265 #Mikhaylivka
+        state = 766 #Pivdenna Bessarabiya
+        state = 829 #Pokrovs'k
+        state = 834 #Balta-Tiraspil'
     }
 }
