@@ -1,0 +1,82 @@
+ideas = {
+    country = {
+        metyatuyo = {
+            picture = generic_army_problems
+            allowed = {
+                always = yes
+            }
+                removal_cost = -1
+            modifier = {
+                political_power_factor = 1
+                political_power_gain = 1
+                justify_war_goal_time = -0.8
+                surrender_limit = 1
+                equipment_capture_factor = 1
+                conscription_factor = 1
+                max_command_power = 300
+                send_volunteer_factor = 2
+                fuel_gain_factor = 1
+                max_fuel_factor = 100
+                consumer_goods_factor = -0.5
+                industrial_capacity_dockyard = 5
+                industrial_capacity_factory = 10
+                supply_node_range = 5
+                decryption_factor = 1
+                encryption_factor = 1
+                intel_network_gain_factor = 5
+                army_attack_factor = 1
+                army_defence_factor = 1
+                army_speed_factor = 5
+                army_morale_factor = 10
+                dig_in_speed_factor = 3
+                experience_gain_army = 1
+                experience_gain_army_factor = 5
+                experience_gain_navy = 1
+                experience_gain_navy_factor = 5
+                naval_damage_factor = 10
+                naval_defense_factor = 10
+                naval_hit_chance = 1
+                naval_speed_factor = 1
+                navy_visibility = -1
+                positioning = 1
+                repair_speed_factor = 10
+                submarine_attack = 500
+                air_attack_factor = 10
+                air_defence_factor = 10
+                air_cas_efficiency = 5
+                air_range_factor = 5
+                experience_gain_air = 1
+                experience_gain_air_factor = 5
+                country_resource_rubber = 1000
+                country_resource_oil = 1000
+                country_resource_steel = 1000
+                country_resource_tungsten = 1000
+                country_resource_aluminium = 1000
+                country_resource_chromium = 1000
+                mobilization_speed = 10
+            }
+            equipment_bonus = {
+				medium_tank_chassis = {
+					reliability = 5
+					armor_value = 1
+				}
+			}
+            rule = {
+                can_use_kamikaze_pilots = yes
+            }
+        }
+    }
+}
+#army_attack_factor = 2.5
+#army_speed_factor = 5
+#industrial_capacity_factory = 10
+#dockyard_capacity_factory = 5
+#army_org = 800
+#decryption_factor = 1
+#army_org_regain = 10
+#mobilization_speed = 10
+#max_army_group_size = 240
+#intel_network_gain_factor = 1
+#operative_slot = 20
+#political_power_factor = 1
+#supply_consumption_factor = -10

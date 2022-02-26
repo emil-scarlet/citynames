@@ -1,0 +1,73 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_startup"
+			every_state = {
+				do_state_renaming = yes
+				do_vp_renaming = yes
+			}
+		}
+	}
+	on_state_control_changed = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_state_control_changed"
+			FROM.FROM = {
+				do_state_renaming = yes
+				do_vp_renaming = yes
+			}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_capitulation"
+			ROOT.ROOT = {
+				every_state = {
+					do_state_renaming = yes
+					do_vp_renaming = yes
+				}
+			}
+		}
+	}
+	on_peaceconference_ended = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_peaceconference_ended"
+			FROM.FROM = {
+				every_state = {
+					do_state_renaming = yes
+					do_vp_renaming = yes
+				}
+			}
+		}
+	}
+	on_annex = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_annex"
+			FROM.FROM = {
+				every_state = {
+					do_state_renaming = yes
+					do_vp_renaming = yes
+				}
+			}
+		}
+	}
+	on_government_change = {
+		effect = {
+			log = "[GetDateText]: state_renaming_on_actions on_government_change"
+			if = {
+				limit = {
+					OR = {
+						is_german_tag = yes
+						is_russian_tag = yes
+						is_bulgarian_tag = yes
+					}
+				}
+				ROOT = {
+					every_controlled_state = {
+						do_state_renaming = yes
+						do_vp_renaming = yes
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,87 @@
+do_vp_renaming = {
+    do_german_vp_renaming = yes
+    reset_vp_renaming = yes
+}
+
+do_german_vp_renaming = {
+    if = {
+        limit = {
+            2 = {
+                has_state_flag = state_renamed_german
+            }
+        }
+        set_province_name = {
+            id = 9904
+            name = VICTORY_POINTS_9904_ger #Rom
+        }
+    }
+    else_if = {
+        limit = {
+            6 = {
+                has_state_flag = state_renamed_german
+            }
+        }
+        set_province_name = {
+            id = 6598
+            name = VICTORY_POINTS_6598_ger #Antwerpen
+        }
+        set_province_name = {
+            id = 13068
+            name = VICTORY_POINTS_13068_ger #Lowen
+        }
+        set_province_name = {
+            id = 516
+            name = VICTORY_POINTS_516_ger #Brussel
+        }
+        set_province_name = {
+            id = 3576
+            name = VICTORY_POINTS_3576_ger #Cortrick
+        }
+        set_province_name = {
+            id = 6560
+            name = VICTORY_POINTS_6560_ger #Gent
+        }
+    }
+    else_if = {
+        limit = {
+            8 = {
+                has_state_flag = state_renamed_german
+            }
+        }
+        set_province_name = {
+            id = 6583
+            name = VICTORY_POINTS_6583_ger #Luxemburg
+        }
+    }
+}
+
+reset_vp_renaming = {
+    if = {
+        limit = {
+            2 = {
+                has_state_flag = state_didnt_rename
+            }
+        }
+        reset_province_name = 9904
+    }
+    if = {
+        limit = {
+            6 = {
+                has_state_flag = state_didnt_rename
+            }
+        }
+        reset_province_name = 6598
+        reset_province_name = 13068
+        reset_province_name = 516
+        reset_province_name = 3576
+        reset_province_name = 6560
+    }
+    if = {
+        limit = {
+            8 = {
+                has_state_flag = state_didnt_rename
+            }
+        }
+        reset_province_name = 6583
+    }
+}

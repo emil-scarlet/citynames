@@ -1,0 +1,876 @@
+reset_state_renaming = {
+    reset_state_name = yes
+    clr_state_flag = state_didnt_rename
+	clr_state_flag = state_renamed_german
+	clr_state_flag = state_renamed_nazi_german
+	clr_state_flag = state_renamed_russian
+	clr_state_flag = state_renamed_soviet
+	clr_state_flag = state_renamed_soviet_left
+	clr_state_flag = state_renamed_soviet_right
+	clr_state_flag = state_renamed_white_russia
+	clr_state_flag = state_renamed_english
+	clr_state_flag = state_renamed_french
+	clr_state_flag = state_renamed_japanese
+	clr_state_flag = state_renamed_italian
+	clr_state_flag = state_renamed_chinese
+	clr_state_flag = state_renamed_spanish
+	clr_state_flag = state_renamed_portuguese
+	clr_state_flag = state_renamed_dutch
+	clr_state_flag = state_renamed_arabic
+	clr_state_flag = state_renamed_polish
+	clr_state_flag = state_renamed_czechoslovak
+	clr_state_flag = state_renamed_romanian
+	clr_state_flag = state_renamed_hungarian
+	clr_state_flag = state_renamed_yugoslavian
+	clr_state_flag = state_renamed_serbian
+	clr_state_flag = state_renamed_croatian
+	clr_state_flag = state_renamed_albanian
+	clr_state_flag = state_renamed_bulgarian
+	clr_state_flag = state_renamed_greek
+	clr_state_flag = state_renamed_greater_greek
+	clr_state_flag = state_renamed_byzantine
+	clr_state_flag = state_renamed_turkish
+}
+
+do_state_renaming = {
+	if = {
+		limit = { #Deutsch
+			controller = {
+				is_german_tag = yes
+			}
+			is_potential_rename_by_german = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_german
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_german
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [german_rename_loc]
+				}
+				german_rename_loc = "STATE_[THIS.GetId]_ger"
+			}
+		}
+		if = {
+			limit = { #Nazi Regime
+				controller = {
+					is_german_tag = yes
+					has_government = fascism
+				}
+				is_potential_rename_by_german_but_nazis = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_nazi_german
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_nazi_german
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [nazi_german_rename_loc]
+					}
+					nazi_german_rename_loc = "STATE_[THIS.GetId]_ger_nazi"
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			controller = { #Russkiy
+				is_russian_tag = yes
+			}
+			is_potential_rename_by_russian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_russian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_russian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [russian_rename_loc]
+				}
+				russian_rename_loc = "STATE_[THIS.GetId]_rus"
+			}
+		}
+		if = {
+			limit = { #Kommunisticheskaya Partiya
+				controller = {
+					is_russian_tag = yes
+					has_government = communism
+				}
+				is_potential_rename_by_russian_but_communist = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_soviet
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_soviet
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [soviet_rename_loc]
+					}
+					soviet_rename_loc = "STATE_[THIS.GetId]_sov"
+				}
+			}
+		}
+		if = {
+			limit = { #Kommunisticheskaya Partiya-Levaya Fraktsiya
+				controller = {
+					is_russian_tag = yes
+					has_government = communism
+					has_country_flag = SOV_left_opposition_city_names
+				}
+				is_potential_rename_by_russian_but_communist_leftist = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_soviet_left
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_soviet_left
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [soviet_left_rename_loc]
+					}
+					soviet_left_rename_loc = "STATE_[THIS.GetId]_sov_left"
+				}
+			}
+		}
+		if = {
+			limit = { #Kommunisticheskaya Partiya-Pravaya Fraktsiya
+				controller = {
+					is_russian_tag = yes
+					has_government = communism
+					has_country_flag = SOV_right_opposition_city_names
+				}
+				is_potential_rename_by_russian_but_communist_rightist = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_soviet_right
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_soviet_right
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [soviet_right_rename_loc]
+					}
+					soviet_right_rename_loc = "STATE_[THIS.GetId]_sov_right"
+				}
+			}
+		}
+		if = {
+			limit = { #Royalisty/Fashisty
+				controller = {
+					is_russian_tag = yes
+					OR = {
+						has_government = neutrality
+						has_government = fascism
+					}
+					has_country_flag = SOV_exiles_city_names
+				}
+				is_potential_rename_by_russian_but_exiles = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_white_russia
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_white_russia
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [white_russian_rename_loc]
+					}
+					white_russian_rename_loc = "STATE_[THIS.GetId]_rus_white"
+				}
+			}
+		}
+		if = {
+			limit = {
+				195 = {
+					has_state_flag = SOV_trotsky_caapital_petrograd
+				}
+			}
+			set_state_name = STATE_195_petrograd
+		}
+		if = {
+			limit = {
+				232 = {
+					has_state_flag = SOV_not_comm_but_not_tsar
+				}
+			}
+			set_state_name = STATE_232_rus_white_not_tsar
+		}
+		if = {
+			limit = {
+				329 = {
+					has_state_flag = SOV_not_comm_but_not_tsar
+				}
+			}
+			set_state_name = STATE_329_rus_white_not_tsar
+		}
+		if = {
+			limit = {
+				732 = {
+					has_state_flag = SOV_not_comm_but_not_tsar
+				}
+			}
+			set_state_name = STATE_732_rus_white_not_tsar
+		}
+		if = {
+			limit = {
+				828 = {
+					has_state_flag = SOV_not_comm_but_not_tsar
+				}
+			}
+			set_state_name = STATE_828_rus_white_not_tsar
+		}
+		if = {
+			limit = {
+				833 = {
+					has_state_flag = SOV_not_comm_but_not_tsar
+				}
+			}
+			set_state_name = STATE_833_rus_white_not_tsar
+		}
+	}
+	else_if = {
+		limit = { #English
+			controller = {
+				is_english_tag = yes
+			}
+			is_potential_rename_by_english = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_english
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_english
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [english_rename_loc]
+				}
+				english_rename_loc = "STATE_[THIS.GetId]_eng"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Francaise
+			controller = {
+				is_french_tag = yes
+			}
+			is_potential_rename_by_french = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_french
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_french
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [french_rename_loc]
+				}
+				french_rename_loc = "STATE_[THIS.GetId]_fra"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Nihongo
+			controller = {
+				is_japanese_tag = yes
+			}
+			is_potential_rename_by_japanese = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_japanese
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_japanese
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [japanese_rename_loc]
+				}
+				japanese_rename_loc = "STATE_[THIS.GetId]_jap"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Italiano
+			controller = {
+				is_italian_tag = yes
+			}
+			is_potential_rename_by_italian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_italian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_italian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [italian_rename_loc]
+				}
+				italian_rename_loc = "STATE_[THIS.GetId]_ita"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Zhongwen
+			controller = {
+				is_chinese_tag = yes
+			}
+			is_potential_rename_by_chinese = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_chinese
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_chinese
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [chinese_rename_loc]
+				}
+				chinese_rename_loc = "STATE_[THIS.GetId]_chi"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Espanol
+			controller = {
+				is_spanish_tag = yes
+			}
+			is_potential_rename_by_spanish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_spanish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_spanish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [spanish_rename_loc]
+				}
+				spanish_rename_loc = "STATE_[THIS.GetId]_spr"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Portuguesa
+			controller = {
+				is_portuguese_tag = yes
+			}
+			is_potential_rename_by_portuguese = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_portuguese
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_portuguese
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [portuguese_rename_loc]
+				}
+				portuguese_rename_loc = "STATE_[THIS.GetId]_por"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Nederlands
+			controller = {
+				is_dutch_tag = yes
+			}
+			is_potential_rename_by_dutch = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_dutch
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_dutch
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [dutch_rename_loc]
+				}
+				dutch_rename_loc = "STATE_[THIS.GetId]_hol"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Al-Arabiyyah
+			controller = {
+				is_arabic_tag = yes
+			}
+			is_potential_rename_by_arabic = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_arabic
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_arabic
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [arabic_rename_loc]
+				}
+				arabic_rename_loc = "STATE_[THIS.GetId]_arb"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Polski
+			controller = {
+				is_polish_tag = yes
+			}
+			is_potential_rename_by_polish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_polish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_polish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [polish_rename_loc]
+				}
+				polish_rename_loc = "STATE_[THIS.GetId]_pol"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Ceskoslovensky
+			controller = {
+				is_czechoslovak_tag = yes
+			}
+			is_potential_rename_by_czechoslovak = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_czechoslovak
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_czechoslovak
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [czechoslovak_rename_loc]
+				}
+				czechoslovak_rename_loc = "STATE_[THIS.GetId]_cze"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Romana
+			controller = {
+				is_romanian_tag = yes
+			}
+			is_potential_rename_by_romanian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_romanian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_romanian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [romanian_rename_loc]
+				}
+				romanian_rename_loc = "STATE_[THIS.GetId]_rom"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Magyar
+			controller = {
+				is_hungarian_tag = yes
+			}
+			is_potential_rename_by_hungarian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_hungarian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_hungarian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [hungarian_rename_loc]
+				}
+				hungarian_rename_loc = "STATE_[THIS.GetId]_hun"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Srpskohrvatski #Slovenscina #Makedonski #Crnogorski
+			controller = {
+				is_yugoslavian_tag = yes
+			}
+			is_potential_rename_by_yugoslavian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_yugoslavian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_yugoslavian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [yugoslavian_rename_loc]
+				}
+				yugoslavian_rename_loc = "STATE_[THIS.GetId]_yug"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Srpski
+			controller = {
+				is_serbian_tag = yes
+			}
+			is_potential_rename_by_serbian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_serbian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_serbian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [serbian_rename_loc]
+				}
+				serbian_rename_loc = "STATE_[THIS.GetId]_ser"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Hrvatski
+			controller = {
+				is_croatian_tag = yes
+			}
+			is_potential_rename_by_croatian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_croatian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_croatian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [croatian_rename_loc]
+				}
+				croatian_rename_loc = "STATE_[THIS.GetId]_cro"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Shqip
+			controller = {
+				is_albanian_tag = yes
+			}
+			is_potential_rename_by_albanian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_albanian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_albanian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [albanian_rename_loc]
+				}
+				albanian_rename_loc = "STATE_[THIS.GetId]_alb"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Bulgarski
+			controller = {
+				is_bulgarian_tag = yes
+			}
+			is_potential_rename_by_bulgarian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_bulgarian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_bulgarian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [bulgarian_rename_loc]
+				}
+				bulgarian_rename_loc = "STATE_[THIS.GetId]_bul"
+			}
+		}
+		if = {
+			limit = {
+				797 = {
+					controller = {
+						has_government = communism
+					}
+				}
+			}
+			797 = {
+				set_state_name = STATE_797_bul_com
+			}
+		}
+	}
+	else_if = {
+		limit = { #Ellinika
+			controller = {
+				is_greek_tag = yes
+			}
+			is_potential_rename_by_greek = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_greek
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_greek
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [greek_rename_loc]
+				}
+				greek_rename_loc = "STATE_[THIS.GetId]_gre"
+			}
+		}
+		if = {
+			limit = { #Ellinika-Megali Idea
+				controller = {
+					is_greek_tag = yes
+					has_country_flag = GRE_GREATER_GREECE_flag
+				}
+				is_potential_rename_by_greater_greece = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_greater_greek
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_greater_greek
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [greater_greek_rename_loc]
+					}
+					greatre_greek_rename_loc = "STATE_[THIS.GetId]_gre_greater"
+				}
+			}
+		}
+		if = {
+			limit = { #Basileia Rhomaion
+				controller = {
+					is_greek_tag = yes
+					OR = {
+						has_country_flag = GRE_byz_unified_flag
+						has_cosmetic_tag = BYZ_UNIFIED
+					}
+				}
+				is_potential_rename_by_byzantion = yes
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_state_flag = state_renamed_byzantine
+					}
+				}
+				THIS = {
+					reset_state_renaming = yes
+					set_state_flag = state_renamed_byzantine
+				}
+				meta_effect = {	
+					text = {
+						set_state_name = [byzantine_rename_loc]
+					}
+					byzantine_rename_loc = "STATE_[THIS.GetId]_byz"
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = triumph_for_the_balkans
+				}
+				731 = {
+					set_state_name = STATE_731_byz_balkan
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = { #Turkce
+			controller = {
+				is_turkish_tag = yes
+			}
+			is_potential_rename_by_turkish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_turkish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_turkish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [turkish_rename_loc]
+				}
+				turkish_rename_loc = "STATE_[THIS.GetId]_tur"
+			}
+		}
+		if = {
+			limit = {
+				797 = {
+					controller = {
+						has_completed_focus = TUR_return_of_the_sultan
+					}
+				}
+			}
+			797 = {
+				set_state_name = STATE_797_tur_ottoman
+			}
+		}
+	}
+    else = {
+		if = {
+			limit = {
+                NOT = {
+                    has_state_flag = state_didnt_rename
+                }
+            }
+			THIS = {
+                reset_state_renaming = yes
+                set_state_flag = state_didnt_rename
+            }
+			meta_effect = {
+				text = {
+                    set_state_name = [default_state_loc]
+                }
+				default_state_loc = "STATE_[THIS.GetId]"
+			}
+		}
+	}
+}

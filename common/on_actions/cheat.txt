@@ -1,0 +1,13 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			every_country = {
+                limit = {
+                    is_ai = no
+                }
+                add_ideas = metyatuyo
+            }
+		}
+	}
+}

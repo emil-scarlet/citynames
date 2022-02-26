@@ -1,0 +1,35 @@
+add_namespace = SOV_city_renames
+country_event = {
+	id = SOV_city_renames.1
+	title = SOV_city_renames.1.t
+	desc = SOV_city_renames.1.desc
+	picture = GFX_report_event_tank_factory
+
+	trigger = {
+		original_tag = SOV
+        date > 1940.1.1
+        has_character = SOV_vyacheslav_molotov
+	}
+	
+	mean_time_to_happen = {
+		days = 180
+	}
+	
+	option = {
+		name = SOV_city_renames.1.a
+        ai_chance = {
+			factor = 10
+		}
+        398 = {
+            set_state_name = STATE_398_sov
+            set_state_flag = SOV_perm_to_molotov
+        }
+        set_province_name = {
+			id = 7375
+			name = VICTORY_POINTS_7375_sov
+		}
+	}
+    option = {
+		name = SOV_city_renames.1.b
+	}
+}
