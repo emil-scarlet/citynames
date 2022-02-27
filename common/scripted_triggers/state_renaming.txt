@@ -263,6 +263,20 @@ is_lithuanian_tag = {
     }
 }
 
+is_latvian_tag = {
+    OR = {
+        original_tag = LAT
+        tag = LAT
+    }
+}
+
+is_estonian_tag = {
+    OR = {
+        original_tag = EST
+        tag = EST
+    }
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -1723,5 +1737,40 @@ is_potential_rename_by_lithuanian = {
         state = 812 #Harjuma
         state = 813 #Viruma
         state = 834 #Balta-Tiraspolis
+    }
+}
+
+is_potential_rename_by_latvian = {
+    OR = {
+        state = 11 #Kauna
+        state = 13 #Pernava
+        state = 188 #Klaipeda
+        state = 189 #Zemaitija
+        state = 191 #tartu
+        state = 784 #Vilna
+        state = 808 #Riga
+        state = 811 #Samsala
+        state = 812 #Harjuzeme
+        state = 813 #Viruzeme
+        state = 814 #Sudova
+        state = 815 #Aukstaitija
+    }
+}
+
+is_potential_rename_by_estonian = {
+    OR = {
+        state = 12 #Liivimaa
+        state = 111 #Uusimaa
+        state = 145 #Ahvenamaa
+        state = 146 #Karjala
+        state = 147 #Salla
+        state = 148 #Lapimaa
+        state = 149 #Pohjanmaa
+        state = 150 #Savo
+        state = 190 #Kuramaa
+        state = 722 #Petsamo
+        state = 808 #Riia
+        state = 809 #Zemgale
+        state = 810 #Latgale
     }
 }

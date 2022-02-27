@@ -33,6 +33,8 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_ukrainian
 	clr_state_flag = state_renamed_belarusian
 	clr_state_flag = state_renamed_lithuanian
+	clr_state_flag = state_renamed_latvian
+	clr_state_flag = state_renamed_estonian
 }
 
 do_state_renaming = {
@@ -929,6 +931,56 @@ do_state_renaming = {
 					set_state_name = [lithuanian_rename_loc]
 				}
 				lithuanian_rename_loc = "STATE_[THIS.GetId]_lit"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Latviesu
+			controller = {
+				is_latvian_tag = yes
+			}
+			is_potential_rename_by_latvian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_latvian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_latvian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [latvian_rename_loc]
+				}
+				latvian_rename_loc = "STATE_[THIS.GetId]_lat"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Eesti
+			controller = {
+				is_estonian_tag = yes
+			}
+			is_potential_rename_by_estonian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_estonian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_estonian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [estonian_rename_loc]
+				}
+				estonian_rename_loc = "STATE_[THIS.GetId]_est"
 			}
 		}
 	}
