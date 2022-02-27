@@ -256,6 +256,13 @@ is_belarusian_tag = {
     tag = BLR
 }
 
+is_lithuanian_tag = {
+    OR = {
+        original_tag = LIT
+        tag = LIT
+    }
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -1660,5 +1667,61 @@ is_potential_rename_by_belarusian = {
         state = 207 #Vicebsk
         state = 241 #Homel'
         state = 784 #Vil'nya
+    }
+}
+
+is_potential_rename_by_lithuanian = {
+    OR = {
+        state = 5 #Varmijos-Mozuru
+        state = 10 #Varsuva
+        state = 12 #Vidzeme
+        state = 13 #Pernu
+        state = 85 #Gdanskas
+        state = 86 #Poznane
+        state = 87 #Lodze
+        state = 88 #Krokuva
+        state = 89 #Stanislavivas
+        state = 90 #Kelcai
+        state = 91 #Lvovas
+        state = 92 #Liublinas
+        state = 93 #Voluine
+        state = 94 #Polese
+        state = 95 #Naugardukas
+        state = 96 #Vileika
+        state = 97 #Balstoge
+        state = 98 #Plockas
+        state = 188 #Klaipeda
+        state = 190 #Kursas
+        state = 191 #Tartu
+        state = 192 #Odesa
+        state = 193 #Cernigovas
+        state = 194 #Mozyrius
+        state = 197 #Mykolajivas
+        state = 198 #Vinycia
+        state = 199 #Chmelnyckis
+        state = 201 #Zitomyras
+        state = 202 #Kijevas
+        state = 203 #Cerkasai
+        state = 204 #Babruiskas
+        state = 206 #Minskas
+        state = 207 #Vitebskas
+        state = 224 #Brianskas
+        state = 225 #Sumai
+        state = 226 #Dniepropetrovskas
+        state = 241 #Gomelis
+        state = 242 #Smolenskas
+        state = 243 #Roslavlis
+        state = 259 #Poltava
+        state = 762 #Katovicai
+        state = 763 #Karaliaucius
+        state = 784 #Vilnius
+        state = 807 #Gdyne
+        state = 808 #Ryga
+        state = 809 #Ziemgala
+        state = 810 #Latgala
+        state = 811 #Sarema
+        state = 812 #Harjuma
+        state = 813 #Viruma
+        state = 834 #Balta-Tiraspolis
     }
 }
