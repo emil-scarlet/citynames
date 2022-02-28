@@ -277,6 +277,14 @@ is_estonian_tag = {
     }
 }
 
+is_finnish_tag = {
+    tag = FIN
+}
+
+is_swedish_tag = {
+    tag = SWE
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -1772,5 +1780,57 @@ is_potential_rename_by_estonian = {
         state = 808 #Riia
         state = 809 #Zemgale
         state = 810 #Latgale
+    }
+}
+
+is_potential_rename_by_finnish = {
+    OR = {
+        state = 13 #Parnu
+        state = 144 #Pohjois-Norja
+        state = 146 #Karjala
+        state = 191 #Tartto
+        state = 195 #Pietari
+        state = 208 #Inkeri
+        state = 209 #Pihkova
+        state = 213 #Muurmanni
+        state = 214 #Arkangeli
+        state = 215 #Aaninen
+        state = 216 #Aunus
+        state = 244 #Olhava
+        state = 262 #Petsora
+        state = 264 #Tihvina
+        state = 666 #Ruotsi-Lappi
+        state = 811 #Saarenmaa
+        state = 812 #Harjumaa
+        state = 813 #Virumaa
+        state = 825 #Nenetsia
+    }
+}
+
+is_potential_rename_by_swedish = {
+    OR = {
+        state = 12 #Livland
+        state = 13 #Parnu
+        state = 37 #Sjalland
+        state = 62 #Svenska Pommern
+        state = 99 #Jylland
+        state = 110 #Ostlandet
+        state = 111 #Nyland
+        state = 142 #Vestlandet
+        state = 143 #Trondelagen
+        state = 144 #Nordnorge
+        state = 146 #Kirjalaland
+        state = 147 #Salla
+        state = 148 #Sapmi
+        state = 149 #Osterbotten
+        state = 150 #Savolax
+        state = 191 #Dorpt
+        state = 195 #Sankt Petersburg
+        state = 208 #Ingermanland
+        state = 808 #Riga
+        state = 810 #Lettgallen
+        state = 811 #Osel
+        state = 812 #Harjumaa
+        state = 813 #Wierland
     }
 }
