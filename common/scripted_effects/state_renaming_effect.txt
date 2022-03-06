@@ -38,6 +38,9 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_finnish
 	clr_state_flag = state_renamed_swedish
 	clr_state_flag = state_renamed_norwegian
+	clr_state_flag = state_renamed_danish
+	clr_state_flag = state_renamed_scottish
+	clr_state_flag = state_renamed_welsh
 }
 
 do_state_renaming = {
@@ -1059,6 +1062,106 @@ do_state_renaming = {
 					set_state_name = [norwegian_rename_loc]
 				}
 				norwegian_rename_loc = "STATE_[THIS.GetId]_nor"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Dansk
+			controller = {
+				is_danish_tag = yes
+			}
+			is_potential_rename_by_danish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_danish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_danish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [danish_rename_loc]
+				}
+				danish_rename_loc = "STATE_[THIS.GetId]_den"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Scots
+			controller = {
+				is_scottish_tag = yes
+			}
+			is_potential_rename_by_scottish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_scottish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_scottish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [scottish_rename_loc]
+				}
+				scottish_rename_loc = "STATE_[THIS.GetId]_sco"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Cymraeg
+			controller = {
+				is_welsh_tag = yes
+			}
+			is_potential_rename_by_welsh = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_welsh
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_welsh
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [welsh_rename_loc]
+				}
+				welsh_rename_loc = "STATE_[THIS.GetId]_wls"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Gaeilge
+			controller = {
+				is_irish_tag = yes
+			}
+			is_potential_rename_by_irish = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_irish
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_irish
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [irish_rename_loc]
+				}
+				irish_rename_loc = "STATE_[THIS.GetId]_ire"
 			}
 		}
 	}

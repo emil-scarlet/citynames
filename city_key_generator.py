@@ -1,6 +1,6 @@
 import re
 from natsort import natsorted
-state_ids = (input("states"))
+state_ids = (input("states\n"))
 state_ids_array = state_ids.split(",")
 state_ids_array_output = natsorted(state_ids_array)
 state="state = "

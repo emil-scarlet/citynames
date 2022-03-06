@@ -289,6 +289,31 @@ is_norwegian_tag = {
     tag = NOR
 }
 
+is_danish_tag = {
+    OR = {
+        tag = DEN
+        AND = {
+            tag = ICE
+            is_subject_of = DEN
+        }
+    }
+}
+
+is_scottish_tag = {
+    tag = SCO
+}
+
+is_welsh_tag = {
+    tag = WLS
+}
+
+is_irish_tag = {
+    OR = {
+        tag = NIR
+        tag = IRE
+    }
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -773,6 +798,7 @@ is_potential_rename_by_russian_but_exiles = {
 is_potential_rename_by_english = {
     OR = {
         state = 14 #Brittany
+        state = 37 #Zealand
         state = 183 #Cyprus
         state = 269 #British Somaliland
         state = 274 #Gold Coast
@@ -1831,6 +1857,7 @@ is_potential_rename_by_swedish = {
         state = 191 #Dorpt
         state = 195 #Sankt Petersburg
         state = 208 #Ingermanland
+        state = 361 #Nya Sverige
         state = 808 #Riga
         state = 810 #Lettgallen
         state = 811 #Osel
@@ -1853,5 +1880,46 @@ is_potential_rename_by_norwegian = {
         state = 141 #Svealand
         state = 337 #Faeroyene
         state = 666 #Lappland
+    }
+}
+###kokokara
+is_potential_rename_by_danish = {
+    OR = {
+        state = 37 #Sjaelland
+        state = 58 #Slesvig-Holsten
+        state = 99 #Jylland
+        state = 100 #Island
+        state = 101 #Gronland
+        state = 110 #Ostlandet
+        state = 138 #Skane
+        state = 142 #Vestlandet
+        state = 143 #Trondelag
+        state = 144 #Nord-Norge
+        state = 337 #Faeroerne
+        state = 811 #Osel
+        state = 812 #Harrien
+        state = 813 #Virland
+    }
+}
+
+is_potential_rename_by_gaelic = {
+    OR = {
+        state = 120 #Hielands
+        state = 121 #Lowden
+        state = 133 #Lanrik
+        state = 136 #Aiberdeenshire
+    }
+}
+
+is_potential_rename_by_welsh = {
+    state = 122 #Cymru
+}
+
+is_potential_rename_by_irish = {
+    OR = {
+        state = 113 #Laighin
+        state = 119 #Ulaidh
+        state = 134 #Connachta
+        state = 135 #an Mhumhain
     }
 }
