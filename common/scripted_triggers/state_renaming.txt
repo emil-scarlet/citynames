@@ -314,6 +314,40 @@ is_irish_tag = {
     }
 }
 
+is_amharic_tag = {
+    tag = ETH
+}
+
+is_tigrinya_tag = {
+    tag = ERI
+}
+
+is_somali_tag = {
+    tag = SOM
+}
+
+is_swahili_tag = {
+    OR = {
+        tag = KEN
+        tag = TZN
+        tag = UGA
+    }
+}
+
+is_afrikaans_tag = {
+    AND = {
+        tag = SAF
+        OR = {
+            has_completed_focus = SAF_support_the_afrikaner_broederbond
+            has_completed_focus = SAF_anti_colonialist_crusade
+        }
+    }
+}
+
+is_persian_tag = {
+    tag = PER
+}
+
 is_potential_rename_by_german = {
     OR = {
         state = 1 #Korsika
@@ -799,6 +833,7 @@ is_potential_rename_by_english = {
     OR = {
         state = 14 #Brittany
         state = 37 #Zealand
+        state = 120 #Scottish Highlands
         state = 183 #Cyprus
         state = 269 #British Somaliland
         state = 274 #Gold Coast
@@ -1187,6 +1222,7 @@ is_potential_rename_by_arabic = {
         state = 513 #Tilimsan
         state = 514 #Al-Sahra Al-Jazairiyah
         state = 549 #As-Sudan
+        state = 550 #Iritriyya
         state = 551 #Al-Khurtum
         state = 552 #Al-Sahra Al-Gharbiah
         state = 553 #Lubnan
@@ -1921,5 +1957,97 @@ is_potential_rename_by_irish = {
         state = 119 #Ulaidh
         state = 134 #Connachta
         state = 135 #an Mhumhain
+    }
+}
+
+is_potential_rename_by_amharic = {
+    OR = {
+        state = 268 #Jibuti
+        state = 269 #Somalelanidi
+        state = 271 #Itiyop'iya
+        state = 550 #Eritiriya
+        state = 559 #Somaliya
+    }
+}
+
+is_potential_rename_by_tigrinya = {
+    state = 550 #Ertra
+}
+
+is_potential_rename_by_somali = {
+    OR = {
+        state = 269 #Soomaaliland
+        state = 271 #Itoobiya
+        state = 559 #Soomaaliya
+    }
+}
+
+is_potential_rename_by_swahili = {
+    OR = {
+        state = 546 #Tanzania
+        state = 547 #Kenya
+        state = 548 #Uganda
+        state = 718 #Kisangani
+        state = 768 #Rwanda
+        state = 769 #Burundi
+    }
+}
+
+is_potential_rename_by_afrikaans = {
+    OR = {
+        state = 275 #Transvaal
+        state = 541 #Suidwes-Afrika
+        state = 542 #Betsjoeanaland
+        state = 545 #Suid-Rhodesië
+        state = 681 #Kaap
+        state = 719 #Natal
+    }
+}
+
+is_potential_rename_by_persian = {
+    OR = {
+        state = 49 #Ankara
+        state = 164 #Dudikanisa
+        state = 183 #Kubrus
+        state = 291 #Baghdad
+        state = 339 #Izmir
+        state = 340 #Bursa
+        state = 341 #Adirni
+        state = 342 #Antalua
+        state = 343 #Afyon Qarahhisar
+        state = 344 #Malatya
+        state = 345 #Mersin
+        state = 346 #Qunya
+        state = 347 #Izmit
+        state = 348 #Qaysari
+        state = 349 #Syuas
+        state = 350 #Diyarbakir
+        state = 352 #Hakari
+        state = 353 #Tunjeli
+        state = 354 #Trabzon
+        state = 355 #Samsun
+        state = 356 #Qastamoni
+        state = 446 #Qahira
+        state = 447 #Iskandariya
+        state = 450 #Banghazi
+        state = 451 #Darna
+        state = 452 #Marsa Matruh
+        state = 453 #Sina
+        state = 454 #Falastin
+        state = 455 #Ardun
+        state = 456 #Aswan
+        state = 457 #Sahray Shurqiya
+        state = 553 #Lubnan
+        state = 554 #Dimashuq
+        state = 656 #Kuwayt
+        state = 663 #Burq
+        state = 675 #Hajara
+        state = 676 #Musul
+        state = 677 #Halab
+        state = 680 #Deir ez-Zor
+        state = 797 #Istanbul
+        state = 798 #Amasya
+        state = 799 #Khatay
+        state = 800 #Wan
     }
 }

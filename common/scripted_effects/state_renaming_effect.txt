@@ -41,6 +41,12 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_danish
 	clr_state_flag = state_renamed_scottish
 	clr_state_flag = state_renamed_welsh
+	clr_state_flag = state_renamed_amharic
+	clr_state_flag = state_renamed_tigrinya
+	clr_state_flag = state_renamed_somali
+	clr_state_flag = state_renamed_swahili
+	clr_state_flag = state_renamed_afrikaans
+	clr_state_flag = state_renamed_persian
 }
 
 do_state_renaming = {
@@ -1162,6 +1168,158 @@ do_state_renaming = {
 					set_state_name = [irish_rename_loc]
 				}
 				irish_rename_loc = "STATE_[THIS.GetId]_ire"
+			}
+		}
+	}
+	###AFRICA###
+	else_if = {
+		limit = { #Amharinya
+			controller = {
+				is_amharic_tag = yes
+			}
+			is_potential_rename_by_amharic = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_amharic
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_amharic
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [amharic_rename_loc]
+				}
+				amharic_rename_loc = "STATE_[THIS.GetId]_amh"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Tigrinya
+			controller = {
+				is_tigrinya_tag = yes
+			}
+			is_potential_rename_by_tigrinya = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_tigrinya
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_tigrinya
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [tigrinya_rename_loc]
+				}
+				tigrinya_rename_loc = "STATE_[THIS.GetId]_tig"
+			}
+		}
+	}
+	else_if = {
+		limit = { #af Soomaali
+			controller = {
+				is_somali_tag = yes
+			}
+			is_potential_rename_by_somali = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_somali
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_somali
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [somali_rename_loc]
+				}
+				somali_rename_loc = "STATE_[THIS.GetId]_som"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Kiswahili
+			controller = {
+				is_swahili_tag = yes
+			}
+			is_potential_rename_by_swahili = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_swahili
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_swahili
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [swahili_rename_loc]
+				}
+				swahili_rename_loc = "STATE_[THIS.GetId]_swa"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Afrikaans
+			controller = {
+				is_afrikaans_tag = yes
+			}
+			is_potential_rename_by_afrikaans = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_afrikaans
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_afrikaans
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [afrikaans_rename_loc]
+				}
+				afrikaans_rename_loc = "STATE_[THIS.GetId]_afr"
+			}
+		}
+	}
+	###Asian
+	else_if = {
+		limit = { #Farsi
+			controller = {
+				is_persian_tag = yes
+			}
+			is_potential_rename_by_persian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_persian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_persian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [persian_rename_loc]
+				}
+				persian_rename_loc = "STATE_[THIS.GetId]_per"
 			}
 		}
 	}
