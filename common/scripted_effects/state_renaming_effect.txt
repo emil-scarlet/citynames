@@ -47,6 +47,9 @@ reset_state_renaming = {
 	clr_state_flag = state_renamed_swahili
 	clr_state_flag = state_renamed_afrikaans
 	clr_state_flag = state_renamed_persian
+	clr_state_flag = state_renamed_georgian
+	clr_state_flag = state_renamed_armenian
+	clr_state_flag = state_renamed_azerbaijan
 }
 
 do_state_renaming = {
@@ -238,10 +241,12 @@ do_state_renaming = {
 		if = {
 			limit = {
 				195 = {
-					has_state_flag = SOV_trotsky_caapital_petrograd
+					has_state_flag = SOV_trotsky_capital_petrograd
 				}
 			}
-			set_state_name = STATE_195_petrograd
+			195 = {
+				set_state_name = STATE_195_petrograd
+			}
 		}
 		if = {
 			limit = {
@@ -249,7 +254,9 @@ do_state_renaming = {
 					has_state_flag = SOV_not_comm_but_not_tsar
 				}
 			}
-			set_state_name = STATE_232_rus_white_not_tsar
+			232 = {
+				set_state_name = STATE_232_rus_white_not_tsar
+			}
 		}
 		if = {
 			limit = {
@@ -257,7 +264,9 @@ do_state_renaming = {
 					has_state_flag = SOV_not_comm_but_not_tsar
 				}
 			}
-			set_state_name = STATE_329_rus_white_not_tsar
+			329 = {
+				set_state_name = STATE_329_rus_white_not_tsar
+			}
 		}
 		if = {
 			limit = {
@@ -265,7 +274,9 @@ do_state_renaming = {
 					has_state_flag = SOV_not_comm_but_not_tsar
 				}
 			}
-			set_state_name = STATE_732_rus_white_not_tsar
+			732 = {
+				set_state_name = STATE_732_rus_white_not_tsar
+			}
 		}
 		if = {
 			limit = {
@@ -273,7 +284,9 @@ do_state_renaming = {
 					has_state_flag = SOV_not_comm_but_not_tsar
 				}
 			}
-			set_state_name = STATE_828_rus_white_not_tsar
+			828 = {
+				set_state_name = STATE_828_rus_white_not_tsar
+			}
 		}
 		if = {
 			limit = {
@@ -281,7 +294,9 @@ do_state_renaming = {
 					has_state_flag = SOV_not_comm_but_not_tsar
 				}
 			}
-			set_state_name = STATE_833_rus_white_not_tsar
+			833 = {
+				set_state_name = STATE_833_rus_white_not_tsar
+			}
 		}
 	}
 	else_if = {
@@ -1320,6 +1335,81 @@ do_state_renaming = {
 					set_state_name = [persian_rename_loc]
 				}
 				persian_rename_loc = "STATE_[THIS.GetId]_per"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Kartuli
+			controller = {
+				is_georgian_tag = yes
+			}
+			is_potential_rename_by_georgian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_georgian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_georgian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [georgian_rename_loc]
+				}
+				georgian_rename_loc = "STATE_[THIS.GetId]_geo"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Hayeren
+			controller = {
+				is_armenian_tag = yes
+			}
+			is_potential_rename_by_armenian = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_armenian
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_armenian
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [armenian_rename_loc]
+				}
+				armenian_rename_loc = "STATE_[THIS.GetId]_arm"
+			}
+		}
+	}
+	else_if = {
+		limit = { #Azerbaycan Dili
+			controller = {
+				is_azerbaijan_tag = yes
+			}
+			is_potential_rename_by_azerbaijan = yes
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_state_flag = state_renamed_azerbaijan
+				}
+			}
+			THIS = {
+				reset_state_renaming = yes
+				set_state_flag = state_renamed_azerbaijan
+			}
+			meta_effect = {	
+				text = {
+					set_state_name = [azerbaijan_rename_loc]
+				}
+				azerbaijan_rename_loc = "STATE_[THIS.GetId]_azr"
 			}
 		}
 	}

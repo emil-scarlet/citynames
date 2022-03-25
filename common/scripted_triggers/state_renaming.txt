@@ -278,7 +278,10 @@ is_estonian_tag = {
 }
 
 is_finnish_tag = {
-    tag = FIN
+    OR = {
+        tag = FIN
+        tag = KAR
+    }
 }
 
 is_swedish_tag = {
@@ -346,6 +349,18 @@ is_afrikaans_tag = {
 
 is_persian_tag = {
     tag = PER
+}
+
+is_georgian_tag = {
+    tag = GEO
+}
+
+is_armenian_tag = {
+    tag = ARM
+}
+
+is_azerbaijan_tag = {
+    tag = AZR
 }
 
 is_potential_rename_by_german = {
@@ -2049,5 +2064,38 @@ is_potential_rename_by_persian = {
         state = 798 #Amasya
         state = 799 #Khatay
         state = 800 #Wan
+    }
+}
+
+is_potential_rename_by_georgian = {
+    OR = {
+        state = 229 #Azerbaijani
+        state = 230 #Somkheti
+        state = 231 #Sakartvelo
+        state = 233 #Sochi
+        state = 354 #Trapizoni
+        state = 826 #Apkhazeti
+    }
+}
+
+is_potential_rename_by_armenian = {
+    OR = {
+        state = 229 #Adrbejan
+        state = 230 #Hayastan
+        state = 231 #Vrastan
+        state = 354 #Trapizon
+        state = 800 #Van
+        state = 826 #Abkhazia
+    }
+}
+
+is_potential_rename_by_azerbaijan = {
+    OR = {
+        state = 229 #Azerbaycan
+        state = 230 #Ermenistan
+        state = 231 #Gurcustan
+        state = 419 #Tebriz
+        state = 420 #Gilan
+        state = 826 #Abxaziya
     }
 }

@@ -9063,7 +9063,7 @@ country_event = {
 			}
 			NOT = { SOV_is_exiles = yes }
 		}
-		195 = { set_state_name = SOV_petrograd set_state_flag = SOV_trotsky_caapital_petrograd }
+		195 = { set_state_name = SOV_petrograd set_state_flag = SOV_trotsky_capital_petrograd }
 		set_province_name = {
 			id = 3151
 			name = SOV_petrograd
